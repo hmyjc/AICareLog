@@ -35,7 +35,6 @@ MEDICAL_AI_IGNORE_RULES=(
   "# Virtual environments"
   "venv/"
   "env/"
-  ".venv/"
   "medical_ai_agent/"
 
   "# Jupyter Notebook checkpoints"
@@ -51,7 +50,6 @@ MEDICAL_AI_IGNORE_RULES=(
   ".env.local"
   ".env.production"
   ".secret"
-  "config.py"
   "secrets.json"
 
   "# API Keys and sensitive data"
