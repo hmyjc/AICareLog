@@ -1,0 +1,27 @@
+# Web框架
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# 数据库
+pymongo==4.6.0
+
+# HTTP请求
+requests==2.31.0
+
+# 数据处理
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# 定时任务
+APScheduler==3.10.4
+
+# 配置文件
+PyYAML==6.0.1
+
+# 日志
+python-json-logger==2.0.7
+
+
+

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "================================"
+echo "健康档案助手 - Taro H5 启动脚本"
+echo "================================"
+echo ""
+
+cd frontend-taro
+
+echo "[1/3] 检查依赖..."
+if [ ! -d "node_modules" ]; then
+    echo "依赖未安装，正在安装..."
+    pnpm install
+else
+    echo "依赖已安装"
+fi
+
+echo ""
+echo "[2/3] 启动 Taro H5 开发服务器..."
+echo "浏览器将自动打开 http://39.104.28.40:3000"
+echo "按 Ctrl+C 停止服务器"
+echo ""
+
+pnpm dev:h5
+
