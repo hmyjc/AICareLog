@@ -68,7 +68,6 @@ log/
 .env.local
 .env.production
 .secret
-config.py
 secrets.json
 # API Keys and sensitive data
 *.key
