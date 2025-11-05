@@ -72,7 +72,7 @@ cd backend
 python app.py
 ```
 
-服务将在 `https://api.medai.medai-zjgsu.cn:8000` 启动。
+服务将在 `https://api.medai.medai-zjgsu.cn` 启动。
 
 ### 前端部署
 
@@ -96,7 +96,7 @@ npm run build
 
 ## API文档
 
-启动后端服务后，访问 `https://api.medai.medai-zjgsu.cn:8000/docs` 查看完整的API文档。
+启动后端服务后，访问 `https://api.medai.medai-zjgsu.cn/docs` 查看完整的API文档。
 
 ### 主要接口
 

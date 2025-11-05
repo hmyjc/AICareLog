@@ -30,10 +30,10 @@ npm install -g pnpm
 
 编辑 `.env.development` 文件：
 ```bash
-TARO_APP_API_URL=https://api.medai.medai-zjgsu.cn:8000/api
+TARO_APP_API_URL=https://api.medai.medai-zjgsu.cn/api
 ```
 
-> 注意：确保后端服务已启动在 `https://api.medai.medai-zjgsu.cn:8000`
+> 注意：确保后端服务已启动在 `https://api.medai.medai-zjgsu.cn`
 
 ### Step 3: 启动开发服务器
 
@@ -487,7 +487,7 @@ h5: {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://api.medai.medai-zjgsu.cn:8000',
+        target: 'https://api.medai.medai-zjgsu.cn',
         changeOrigin: true
       }
     }

@@ -26,7 +26,7 @@
 
 // API 基础地址
 // ⚠️ 已配置为云服务器地址
-export const API_BASE_URL = 'https://api.medai.medai-zjgsu.cn:8000/api'
+export const API_BASE_URL = 'https://api.medai.medai-zjgsu.cn/api'
 
 // 如果需要修改地址，直接修改上面这行
 // H5 本地开发可以用：http://localhost:8000/api

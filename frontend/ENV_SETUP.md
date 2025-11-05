@@ -5,13 +5,13 @@
 在 `frontend` 目录下创建 `.env` 文件，内容如下：
 
 ```
-VITE_API_URL=https://api.medai.medai-zjgsu.cn:8000/api
+VITE_API_URL=https://api.medai.medai-zjgsu.cn/api
 ```
 
 ## 说明
 
 - `VITE_API_URL`: 后端API的基础URL
-  - 开发环境：`https://api.medai.medai-zjgsu.cn:8000/api`
+  - 开发环境：`https://api.medai.medai-zjgsu.cn/api`
   - 生产环境：根据实际部署的后端地址修改
 
 ## 使用方法

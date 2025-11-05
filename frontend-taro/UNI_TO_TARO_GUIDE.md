@@ -1312,12 +1312,12 @@ const API_URL = process.env.VUE_APP_API_URL || 'https://api.example.com'
 // config/index.ts
 export default {
   defineConstants: {
-    TARO_APP_API_URL: JSON.stringify(process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn:8000')
+    TARO_APP_API_URL: JSON.stringify(process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn')
   }
 }
 
 // 使用
-const API_BASE_URL = process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn:8000'
+const API_BASE_URL = process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn'
 ```
 
 ---

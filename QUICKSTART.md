@@ -104,7 +104,7 @@ cd backend
 python3 app.py
 ```
 
-后端服务将在 `https://api.medai.medai-zjgsu.cn:8000` 启动
+后端服务将在 `https://api.medai.medai-zjgsu.cn` 启动
 
 ### 3. 前端安装
 
@@ -190,8 +190,8 @@ pnpm dev
 ## API文档
 
 后端启动后，访问以下地址查看完整API文档：
-- Swagger UI: `https://api.medai.medai-zjgsu.cn:8000/docs`
-- ReDoc: `https://api.medai.medai-zjgsu.cn:8000/redoc`
+- Swagger UI: `https://api.medai.medai-zjgsu.cn/docs`
+- ReDoc: `https://api.medai.medai-zjgsu.cn/redoc`
 
 ## 主要API接口
 
@@ -243,7 +243,7 @@ scheduler:
 创建 `.env` 文件（或复制 `.env.example`）：
 
 ```
-VITE_API_URL=https://api.medai.medai-zjgsu.cn:8000/api
+VITE_API_URL=https://api.medai.medai-zjgsu.cn/api
 ```
 
 ## 常见问题
@@ -273,7 +273,7 @@ VITE_API_URL=https://api.medai.medai-zjgsu.cn:8000/api
 
 如有问题，请查看：
 1. 项目README.md文档
-2. API文档 (https://api.medai.medai-zjgsu.cn:8000/docs)
+2. API文档 (https://api.medai.medai-zjgsu.cn/docs)
 3. 后端日志文件
 
 ## 开发建议

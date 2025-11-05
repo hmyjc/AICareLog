@@ -115,7 +115,7 @@ frontend-taro/
 编辑 `src/utils/request.ts`：
 
 ```typescript
-const API_BASE_URL = process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn:8000/api'
+const API_BASE_URL = process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn/api'
 ```
 
 或在 `config/index.ts` 中配置环境变量：
