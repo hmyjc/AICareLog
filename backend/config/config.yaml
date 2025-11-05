@@ -6,7 +6,7 @@ dashscope:
 
 # MongoDB配置
 mongodb:
-  uri: "mongodb://root:Jchmy2025@dds-bp18df879a0455c41679-pub.mongodb.rds.aliyuncs.com:3717/admin"
+  uri: "mongodb://root:Jchmy2025@dds-bp13820d540de8541179-pub.mongodb.rds.aliyuncs.com:3717/admin"
   database: "health-agent"  # 使用你新建的数据库
   collection_health_profile: "health_profiles"  # 健康档案集合
   collection_push_history: "push_history"  # 推送历史集合

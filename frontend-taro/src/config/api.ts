@@ -25,14 +25,12 @@
  */
 
 // API 基础地址
-// ⚠️ 请修改这里的地址为你的后端地址
-export const API_BASE_URL = 'http://localhost:8000/api'
+// ⚠️ 已配置为云服务器地址
+export const API_BASE_URL = 'http://39.104.28.40:8000/api'
 
-// 如果你的后端部署在服务器上，取消下面的注释并修改
-// export const API_BASE_URL = 'http://your-server-ip:8000/api'
-
-// 生产环境使用 HTTPS
-// export const API_BASE_URL = 'https://your-api-domain.com/api'
+// 如果需要修改地址，直接修改上面这行
+// H5 本地开发可以用：http://localhost:8000/api
+// 生产环境应该使用 HTTPS：https://your-domain.com/api
 
 // 导出配置对象
 export default {

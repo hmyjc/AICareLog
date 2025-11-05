@@ -111,4 +111,3 @@ cache/
 *.bak
 *.backup
 *.old
-*.pyo
