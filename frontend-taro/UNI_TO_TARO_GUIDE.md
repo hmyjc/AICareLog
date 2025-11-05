@@ -1312,12 +1312,12 @@ const API_URL = process.env.VUE_APP_API_URL || 'https://api.example.com'
 // config/index.ts
 export default {
   defineConstants: {
-    TARO_APP_API_URL: JSON.stringify(process.env.TARO_APP_API_URL || 'http://39.104.28.40:8000')
+    TARO_APP_API_URL: JSON.stringify(process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn:8000')
   }
 }
 
 // 使用
-const API_BASE_URL = process.env.TARO_APP_API_URL || 'http://39.104.28.40:8000'
+const API_BASE_URL = process.env.TARO_APP_API_URL || 'https://api.medai.medai-zjgsu.cn:8000'
 ```
 
 ---
@@ -1463,6 +1463,7 @@ pnpm build:rn
 - 参考本项目的代码结构和实现方式
 
 祝您学习顺利！🎉
+
 
 
 

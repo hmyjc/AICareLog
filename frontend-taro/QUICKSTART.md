@@ -30,10 +30,10 @@ npm install -g pnpm
 
 编辑 `.env.development` 文件：
 ```bash
-TARO_APP_API_URL=http://39.104.28.40:8000/api
+TARO_APP_API_URL=https://api.medai.medai-zjgsu.cn:8000/api
 ```
 
-> 注意：确保后端服务已启动在 `http://39.104.28.40:8000`
+> 注意：确保后端服务已启动在 `https://api.medai.medai-zjgsu.cn:8000`
 
 ### Step 3: 启动开发服务器
 
@@ -43,7 +43,7 @@ TARO_APP_API_URL=http://39.104.28.40:8000/api
 pnpm dev:h5
 ```
 
-浏览器访问：`http://39.104.28.40:3000`
+浏览器访问：`https://api.medai.medai-zjgsu.cn:3000`
 
 #### 📱 微信小程序开发
 
@@ -376,7 +376,7 @@ pnpm build:h5
 pnpm preview:h5
 ```
 
-浏览器访问 `http://39.104.28.40:3000`
+浏览器访问 `https://api.medai.medai-zjgsu.cn:3000`
 
 ### 微信小程序
 
@@ -487,7 +487,7 @@ h5: {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://39.104.28.40:8000',
+        target: 'https://api.medai.medai-zjgsu.cn:8000',
         changeOrigin: true
       }
     }
@@ -517,6 +517,7 @@ A: 重启开发服务器：
 - 📚 阅读完整学习指南：`UNI_TO_TARO_GUIDE.md`
 
 祝您开发顺利！🎉
+
 
 
 

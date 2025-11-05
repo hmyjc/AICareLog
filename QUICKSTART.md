@@ -104,7 +104,7 @@ cd backend
 python3 app.py
 ```
 
-后端服务将在 `http://39.104.28.40:8000` 启动
+后端服务将在 `https://api.medai.medai-zjgsu.cn:8000` 启动
 
 ### 3. 前端安装
 
@@ -149,12 +149,12 @@ chmod +x ../start_frontend.sh
 pnpm dev
 ```
 
-前端应用将在 `http://39.104.28.40:3000` 启动
+前端应用将在 `https://api.medai.medai-zjgsu.cn:3000` 启动
 
 ## 使用流程
 
 ### 1. 创建健康档案
-1. 访问 `http://39.104.28.40:3000`
+1. 访问 `https://api.medai.medai-zjgsu.cn:3000`
 2. 点击"用户档案"菜单
 3. 填写基础信息、健康信息和其他信息
 4. 点击"创建档案"按钮
@@ -190,8 +190,8 @@ pnpm dev
 ## API文档
 
 后端启动后，访问以下地址查看完整API文档：
-- Swagger UI: `http://39.104.28.40:8000/docs`
-- ReDoc: `http://39.104.28.40:8000/redoc`
+- Swagger UI: `https://api.medai.medai-zjgsu.cn:8000/docs`
+- ReDoc: `https://api.medai.medai-zjgsu.cn:8000/redoc`
 
 ## 主要API接口
 
@@ -243,7 +243,7 @@ scheduler:
 创建 `.env` 文件（或复制 `.env.example`）：
 
 ```
-VITE_API_URL=http://39.104.28.40:8000/api
+VITE_API_URL=https://api.medai.medai-zjgsu.cn:8000/api
 ```
 
 ## 常见问题
@@ -273,7 +273,7 @@ VITE_API_URL=http://39.104.28.40:8000/api
 
 如有问题，请查看：
 1. 项目README.md文档
-2. API文档 (http://39.104.28.40:8000/docs)
+2. API文档 (https://api.medai.medai-zjgsu.cn:8000/docs)
 3. 后端日志文件
 
 ## 开发建议

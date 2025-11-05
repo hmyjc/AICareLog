@@ -16,7 +16,7 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/api': {
-        target: 'http://39.104.28.40:8000',
+        target: 'https://api.medai.medai-zjgsu.cn:8000',
         changeOrigin: true,
       }
     }
@@ -26,6 +26,7 @@ export default defineConfig({
     sourcemap: false,
   },
 })
+
 
 
 

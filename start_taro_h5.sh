@@ -17,11 +17,12 @@ fi
 
 echo ""
 echo "[2/3] 启动 Taro H5 开发服务器..."
-echo "浏览器将自动打开 http://39.104.28.40:3000"
+echo "浏览器将自动打开 https://api.medai.medai-zjgsu.cn:3000"
 echo "按 Ctrl+C 停止服务器"
 echo ""
 
 pnpm dev:h5
+
 
 
 

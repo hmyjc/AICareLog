@@ -4,27 +4,27 @@
 
 TabBar 需要以下图标文件（每个功能需要两个图标：普通状态和选中状态）：
 
-### 当前需要的图标：
+### 当前需要的图标（2024年11月更新）：
 
-1. **用户档案**
-   - `user.png` - 普通状态
-   - `user-active.png` - 选中状态
+1. **健康档案**
+   - `profile.png` - 普通状态（建议使用：文档/档案图标）
+   - `profile-active.png` - 选中状态
 
-2. **作息**
-   - `clock.png` - 普通状态
-   - `clock-active.png` - 选中状态
+2. **作息提醒**
+   - `rest.png` - 普通状态（建议使用：月亮/睡眠图标）
+   - `rest-active.png` - 选中状态
 
-3. **饮食**
-   - `coffee.png` - 普通状态
-   - `coffee-active.png` - 选中状态
+3. **饮食建议**
+   - `meal.png` - 普通状态（建议使用：餐具/食物图标）
+   - `meal-active.png` - 选中状态
 
-4. **天气**
-   - `cloud.png` - 普通状态
-   - `cloud-active.png` - 选中状态
+4. **天气推送**
+   - `weather.png` - 普通状态（建议使用：云朵/天气图标）
+   - `weather-active.png` - 选中状态
 
-5. **养生**
-   - `heart.png` - 普通状态
-   - `heart-active.png` - 选中状态
+5. **养生妙招**
+   - `health.png` - 普通状态（建议使用：叶子/心形图标）
+   - `health-active.png` - 选中状态
 
 ## 📏 图标规格
 
@@ -80,6 +80,7 @@ tabBar: {
 ```
 
 > 注意：文字 TabBar 在小程序中可能显示效果不佳，建议还是使用图标。
+
 
 
 

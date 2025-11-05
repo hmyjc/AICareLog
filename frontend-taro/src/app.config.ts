@@ -21,23 +21,23 @@ export default {
     list: [
       {
         pagePath: 'pages/profile/index',
-        text: '档案'
+        text: '健康档案'
       },
       {
         pagePath: 'pages/rest/index',
-        text: '作息'
+        text: '作息提醒'
       },
       {
         pagePath: 'pages/meal/index',
-        text: '饮食'
+        text: '饮食建议'
       },
       {
         pagePath: 'pages/weather/index',
-        text: '天气'
+        text: '天气推送'
       },
       {
         pagePath: 'pages/health-tip/index',
-        text: '养生'
+        text: '养生妙招'
       }
     ]
   }

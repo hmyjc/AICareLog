@@ -28,14 +28,26 @@ export const request = async (url: string, options: RequestOptions = {}) => {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return response.data
     } else {
-      throw new Error(`请求失败: ${response.statusCode}`)
+      // 创建包含statusCode的错误对象
+      const error: any = new Error(`请求失败: ${response.statusCode}`)
+      error.statusCode = response.statusCode
+      error.status = response.statusCode
+      error.response = response
+      throw error
     }
-  } catch (error) {
+  } catch (error: any) {
     Taro.hideLoading()
-    Taro.showToast({
-      title: '网络请求失败',
-      icon: 'none',
-    })
+    
+    // 如果错误已经有statusCode，说明是HTTP错误，不显示Toast
+    // 让调用方自己处理
+    if (!error.statusCode && !error.status) {
+      // 只有真正的网络错误才显示Toast
+      Taro.showToast({
+        title: '网络请求失败',
+        icon: 'none',
+      })
+    }
+    
     throw error
   }
 }

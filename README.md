@@ -72,7 +72,7 @@ cd backend
 python app.py
 ```
 
-服务将在 `http://39.104.28.40:8000` 启动。
+服务将在 `https://api.medai.medai-zjgsu.cn:8000` 启动。
 
 ### 前端部署
 
@@ -87,7 +87,7 @@ npm install
 npm start
 ```
 
-前端将在 `http://39.104.28.40:3000` 启动。
+前端将在 `https://api.medai.medai-zjgsu.cn:3000` 启动。
 
 3. 构建生产版本
 ```bash
@@ -96,7 +96,7 @@ npm run build
 
 ## API文档
 
-启动后端服务后，访问 `http://39.104.28.40:8000/docs` 查看完整的API文档。
+启动后端服务后，访问 `https://api.medai.medai-zjgsu.cn:8000/docs` 查看完整的API文档。
 
 ### 主要接口
 
@@ -159,6 +159,7 @@ health_agent/
 ## 许可证
 
 MIT License
+
 
 
 
