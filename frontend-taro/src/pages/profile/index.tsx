@@ -1,4 +1,4 @@
-import { View, Form, Input, Button, Picker } from '@tarojs/components'
+import { View, Input, Button, Picker, Textarea } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -16,9 +16,14 @@ export default function ProfilePage() {
     height: 0,
     weight: 0,
     blood_type: '未知',
-    lifestyle_habits: [],
-    allergies: [],
-    medical_history: [],
+    lifestyle_habits: '',
+    allergies: '',
+    medical_history: '',
+    adverse_reactions: '',
+    family_history: '',
+    surgery_history: '',
+    vaccination: '',
+    other_notes: '',
   })
   const [isEdit, setIsEdit] = useState(false)
   const userId = useSelector((state: RootState) => state.user.userId)
@@ -41,9 +46,14 @@ export default function ProfilePage() {
           height: data.basic_info?.height || 0,
           weight: data.basic_info?.weight || 0,
           blood_type: data.basic_info?.blood_type || '未知',
-          lifestyle_habits: data.health_info?.lifestyle_habits || [],
-          allergies: data.health_info?.allergies || [],
-          medical_history: data.health_info?.medical_history || [],
+          lifestyle_habits: data.health_info?.lifestyle_habits?.join('、') || '',
+          allergies: data.health_info?.allergies?.join('、') || '',
+          medical_history: data.health_info?.medical_history?.join('、') || '',
+          adverse_reactions: data.health_info?.adverse_reactions?.join('、') || '',
+          family_history: data.health_info?.family_history?.join('、') || '',
+          surgery_history: data.health_info?.surgery_history?.map(s => `${s.name}(${s.date})`).join('、') || '',
+          vaccination: data.other_info?.vaccination?.map(v => `${v.name}(${v.date})`).join('、') || '',
+          other_notes: data.other_info?.other_notes || '',
         })
         setIsEdit(true)
         dispatch(setHasProfile(true))
@@ -69,16 +79,16 @@ export default function ProfilePage() {
           blood_type: formData.blood_type,
         },
         health_info: {
-          lifestyle_habits: formData.lifestyle_habits,
-          allergies: formData.allergies,
-          medical_history: formData.medical_history,
-          adverse_reactions: [],
-          family_history: [],
+          lifestyle_habits: formData.lifestyle_habits ? formData.lifestyle_habits.split(/[、,，]/).filter(Boolean) : [],
+          allergies: formData.allergies ? formData.allergies.split(/[、,，]/).filter(Boolean) : [],
+          medical_history: formData.medical_history ? formData.medical_history.split(/[、,，]/).filter(Boolean) : [],
+          adverse_reactions: formData.adverse_reactions ? formData.adverse_reactions.split(/[、,，]/).filter(Boolean) : [],
+          family_history: formData.family_history ? formData.family_history.split(/[、,，]/).filter(Boolean) : [],
           surgery_history: [],
         },
         other_info: {
           vaccination: [],
-          other_notes: '',
+          other_notes: formData.other_notes,
         },
       }
 
@@ -193,7 +203,90 @@ export default function ProfilePage() {
 
       <View className='form-section'>
         <View className='section-title'>健康信息</View>
-        <View className='hint-text'>提示：生活习惯、过敏史、既往病史等信息可在H5端或小程序端完善</View>
+        
+        <View className='form-item'>
+          <View className='label'>生活习惯</View>
+          <Input
+            className='input'
+            placeholder='例如：久坐、熬夜、规律运动（用顿号或逗号分隔）'
+            value={formData.lifestyle_habits}
+            onInput={(e) => setFormData({ ...formData, lifestyle_habits: e.detail.value })}
+          />
+        </View>
+
+        <View className='form-item'>
+          <View className='label'>过敏史</View>
+          <Input
+            className='input'
+            placeholder='例如：青霉素、海鲜、花粉（用顿号或逗号分隔）'
+            value={formData.allergies}
+            onInput={(e) => setFormData({ ...formData, allergies: e.detail.value })}
+          />
+        </View>
+
+        <View className='form-item'>
+          <View className='label'>既往病史</View>
+          <Input
+            className='input'
+            placeholder='例如：高血压、糖尿病（用顿号或逗号分隔）'
+            value={formData.medical_history}
+            onInput={(e) => setFormData({ ...formData, medical_history: e.detail.value })}
+          />
+        </View>
+
+        <View className='form-item'>
+          <View className='label'>药品不良反应</View>
+          <Input
+            className='input'
+            placeholder='例如：阿司匹林过敏（用顿号或逗号分隔）'
+            value={formData.adverse_reactions}
+            onInput={(e) => setFormData({ ...formData, adverse_reactions: e.detail.value })}
+          />
+        </View>
+
+        <View className='form-item'>
+          <View className='label'>家族史</View>
+          <Input
+            className='input'
+            placeholder='例如：高血压、心脏病（用顿号或逗号分隔）'
+            value={formData.family_history}
+            onInput={(e) => setFormData({ ...formData, family_history: e.detail.value })}
+          />
+        </View>
+
+        <View className='form-item'>
+          <View className='label'>手术史</View>
+          <Input
+            className='input'
+            placeholder='例如：阑尾切除(2020-01)（用顿号或逗号分隔）'
+            value={formData.surgery_history}
+            onInput={(e) => setFormData({ ...formData, surgery_history: e.detail.value })}
+          />
+        </View>
+      </View>
+
+      <View className='form-section'>
+        <View className='section-title'>其他信息</View>
+        
+        <View className='form-item'>
+          <View className='label'>疫苗接种记录</View>
+          <Input
+            className='input'
+            placeholder='例如：新冠疫苗(2023-01)（用顿号或逗号分隔）'
+            value={formData.vaccination}
+            onInput={(e) => setFormData({ ...formData, vaccination: e.detail.value })}
+          />
+        </View>
+
+        <View className='form-item'>
+          <View className='label'>其他备注</View>
+          <Textarea
+            className='textarea'
+            placeholder='其他需要说明的健康信息'
+            value={formData.other_notes}
+            onInput={(e) => setFormData({ ...formData, other_notes: e.detail.value })}
+          />
+        </View>
       </View>
 
       <View className='submit-button'>
@@ -204,4 +297,6 @@ export default function ProfilePage() {
     </View>
   )
 }
+
+
 

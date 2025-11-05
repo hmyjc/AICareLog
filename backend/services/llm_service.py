@@ -167,7 +167,6 @@ class LLMService:
 - 温度：{weather_info.get('temperature', '未知')}
 - 天气：{weather_info.get('weather', '未知')}
 - 风力：{weather_info.get('wind', '未知')}
-- 空气质量：{weather_info.get('air_quality', '良')}
 
 用户基本信息：
 - 姓名：{basic_info.get('nickname', '用户')}

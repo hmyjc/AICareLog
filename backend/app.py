@@ -2,6 +2,7 @@
 import sys
 from pathlib import Path
 import logging
+from contextlib import asynccontextmanager
 
 # 添加项目根目录到系统路径
 ROOT_DIR = Path(__file__).parent.parent.absolute()
@@ -23,26 +24,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# 创建FastAPI应用
-app = FastAPI(
-    title="健康档案助手API",
-    description="个性化健康资讯推送系统",
-    version="1.0.0"
-)
 
-# 配置CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 生产环境应该设置具体的域名
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.on_event("startup")
-async def startup_event():
-    """应用启动事件"""
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """应用生命周期管理"""
+    # 启动事件
     logger.info("健康档案助手应用启动中...")
     
     # 连接MongoDB
@@ -58,11 +44,10 @@ async def startup_event():
         logger.info("定时任务调度器启动成功")
     except Exception as e:
         logger.error(f"定时任务调度器启动失败: {e}")
-
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    """应用关闭事件"""
+    
+    yield
+    
+    # 关闭事件
     logger.info("健康档案助手应用关闭中...")
     
     # 关闭MongoDB连接
@@ -79,6 +64,24 @@ async def shutdown_event():
         logger.info("定时任务调度器已关闭")
     except Exception as e:
         logger.error(f"关闭定时任务调度器失败: {e}")
+
+
+# 创建FastAPI应用
+app = FastAPI(
+    title="健康档案助手API",
+    description="个性化健康资讯推送系统",
+    version="1.0.0",
+    lifespan=lifespan
+)
+
+# 配置CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 生产环境应该设置具体的域名
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # 注册路由
@@ -117,6 +120,8 @@ if __name__ == "__main__":
         port=settings.PORT,
         reload=settings.DEBUG
     )
+
+
 
 
 

@@ -135,7 +135,7 @@ async def delete_health_profile(user_id: str):
 @router.post("/health-profile/{user_id}/location", summary="设置用户地区")
 async def set_user_location(
     user_id: str,
-    location: dict = Body(..., example={"province": "浙江", "city": "杭州"})
+    location: dict = Body(..., examples=[{"province": "浙江", "city": "杭州"}])
 ):
     """设置用户所在地区（用于天气推送）"""
     try:
@@ -158,6 +158,8 @@ async def set_user_location(
     except Exception as e:
         logger.error(f"设置用户地区失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
 
 
 
