@@ -9,7 +9,7 @@ set -eu
 ################################
 GITHUB_DOMAIN="github.com"
 DEFAULT_USERNAME="hmyjc"  # 请修改为您的GitHub用户名
-DEFAULT_REPO_NAME="health_agent"
+DEFAULT_REPO_NAME="AICareLog"
 
 # health_agent 项目特定的忽略规则
 MEDICAL_AI_IGNORE_RULES=(

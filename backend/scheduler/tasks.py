@@ -26,29 +26,31 @@ class HealthScheduler:
             logger.error(f"获取用户列表失败: {e}")
             return []
     
-    async def rest_reminder_task(self, time_type: str):
+    def rest_reminder_task(self, time_type: str):
         """作息提醒任务"""
         logger.info(f"开始执行作息提醒任务：{time_type}")
         users = self._get_all_users()
         
         for user_id in users:
             try:
-                push_service.push_rest_reminder(user_id, time_type)
+                result = push_service.push_rest_reminder(user_id, time_type)
+                logger.info(f"用户{user_id}作息提醒推送结果: {result.get('status')}")
             except Exception as e:
                 logger.error(f"用户{user_id}作息提醒推送失败: {e}")
     
-    async def meal_reminder_task(self, meal_type: str):
+    def meal_reminder_task(self, meal_type: str):
         """饮食提醒任务"""
         logger.info(f"开始执行饮食提醒任务：{meal_type}")
         users = self._get_all_users()
         
         for user_id in users:
             try:
-                push_service.push_meal_reminder(user_id, meal_type)
+                result = push_service.push_meal_reminder(user_id, meal_type)
+                logger.info(f"用户{user_id}饮食提醒推送结果: {result.get('status')}")
             except Exception as e:
                 logger.error(f"用户{user_id}饮食提醒推送失败: {e}")
     
-    async def weather_reminder_task(self):
+    def weather_reminder_task(self):
         """天气提醒任务"""
         logger.info("开始执行天气提醒任务")
         users = self._get_all_users()
@@ -60,18 +62,22 @@ class HealthScheduler:
                 profile = collection.find_one({"user_id": user_id})
                 
                 if profile and profile.get("location"):
-                    push_service.push_weather_reminder(user_id)
+                    result = push_service.push_weather_reminder(user_id)
+                    logger.info(f"用户{user_id}天气提醒推送结果: {result.get('status')}")
+                else:
+                    logger.info(f"用户{user_id}未设置地区，跳过天气推送")
             except Exception as e:
                 logger.error(f"用户{user_id}天气提醒推送失败: {e}")
     
-    async def health_tip_task(self):
+    def health_tip_task(self):
         """养生妙招任务"""
         logger.info("开始执行养生妙招任务")
         users = self._get_all_users()
         
         for user_id in users:
             try:
-                push_service.push_health_tip(user_id)
+                result = push_service.push_health_tip(user_id)
+                logger.info(f"用户{user_id}养生妙招推送结果: {result.get('status')}")
             except Exception as e:
                 logger.error(f"用户{user_id}养生妙招推送失败: {e}")
     
@@ -143,6 +149,7 @@ class HealthScheduler:
 
 # 全局调度器实例
 health_scheduler = HealthScheduler()
+
 
 
 

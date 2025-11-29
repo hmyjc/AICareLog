@@ -1,167 +1,246 @@
-# 健康档案助手系统
+# Health Profile Assistant System
 
-个性化健康资讯推送系统，通过"建立个人档案-自定义推送风格-精准内容推送"三步流程，为用户提供适配个人健康状况的专属服务。
+A personalized health information push system that provides tailored services through a three-step process: "Create Personal Profile - Customize Push Style - Precise Content Delivery".
 
-## 功能特点
+## Features
 
-### 1. 个人健康档案建立
-- **基础信息**：昵称、出生年月、年龄、性别、身高、体重、血型
-- **健康信息**：生活习惯、过敏史、既往病史、药品不良反应、家族史、手术史
-- **其他信息**：疫苗接种、月经、生育情况等
+### 1. Personal Health Profile Creation
+- **Basic Information**: Nickname, date of birth, age, gender, height, weight, blood type
+- **Health Information**: Lifestyle habits, allergy history, medical history, adverse drug reactions, family history, surgical history
+- **Other Information**: Vaccination records, menstruation, fertility status, etc.
 
-### 2. 推送人物风格自定义
-支持多种人物风格，包括：
-- 温柔美女：温柔体贴，像知心姐姐
-- 亲切妈妈：慈爱唠叨，充满关爱
-- 专业顾问：科学严谨，提供专业建议
-- 活力同伴：轻松愉快，年轻活力
-- 贴心护工：细心周到，关注细节
-- 智慧长者：经验丰富，传授养生智慧
-- 科技助手：精准高效，数据驱动
-- 运动教练：充满激情，鼓励积极
+### 2. Customizable Persona Styles
+Support multiple persona styles including:
+- Gentle Lady: Warm and caring, like a thoughtful sister
+- Caring Mom: Loving and attentive, full of care
+- Professional Consultant: Scientific and rigorous, providing professional advice
+- Energetic Companion: Light and cheerful, young and vibrant
+- Caring Caregiver: Meticulous and thoughtful, attentive to details
+- Wise Elder: Experienced, sharing wellness wisdom
+- Tech Assistant: Precise and efficient, data-driven
+- Fitness Coach: Passionate, encouraging positivity
 
-### 3. 个性化健康资讯推送
-#### 作息提醒
-- 早上7点：起床提醒
-- 中午13点：午睡提醒
-- 晚上23点：睡觉提醒
+### 3. Personalized Health Information Push
+#### Rest Reminders
+- 7:00 AM: Wake-up reminder
+- 1:00 PM: Nap reminder
+- 11:00 PM: Bedtime reminder
 
-#### 饮食提醒
-- 早上7:30：早餐提醒
-- 中午12:00：午餐提醒
-- 下午18:00：晚餐提醒
+#### Meal Reminders
+- 7:30 AM: Breakfast reminder
+- 12:00 PM: Lunch reminder
+- 6:00 PM: Dinner reminder
 
-#### 天气推送
-- 每天早上7点推送天气信息和健康建议
+#### Weather Push
+- Daily weather information and health advice at 7:00 AM
 
-#### 养生妙招
-- 每天下午14点推送养生小妙招
+#### Wellness Tips
+- Daily wellness tips at 2:00 PM
 
-## 技术架构
+## Technology Stack
 
-### 后端
-- **框架**：FastAPI
-- **数据库**：MongoDB
-- **大模型**：阿里云百炼 (Qwen-Max)
-- **定时任务**：APScheduler
-- **天气数据**：爬虫获取
+### Backend
+- **Framework**: FastAPI
+- **Database**: MongoDB
+- **LLM**: Alibaba Cloud Bailian (Qwen-Max)
+- **Scheduler**: APScheduler
+- **Weather Data**: Web Crawler
 
-### 前端
-- **框架**：React + TypeScript
-- **UI组件**：Ant Design
-- **状态管理**：Redux Toolkit
-- **路由**：React Router
-- **样式**：Tailwind CSS
+### Frontend
+- **Framework**: React + TypeScript
+- **UI Components**: Ant Design
+- **State Management**: Redux Toolkit
+- **Routing**: React Router
+- **Styling**: Tailwind CSS
 
-## 安装部署
+## Installation and Deployment
 
-### 后端部署
+### Backend Deployment
 
-1. 安装依赖
+1. Install dependencies
 ```bash
 cd health_agent
 pip install -r requirements.txt
 ```
 
-2. 配置数据库
-编辑 `backend/config/config.yaml`，配置MongoDB连接信息和API密钥。
+2. Configure database
+Edit `backend/config/config.yaml` to configure MongoDB connection and API keys.
 
-3. 启动服务
+3. Start the service
 ```bash
 cd backend
 python app.py
 ```
 
-服务将在 `https://api.medai.medai-zjgsu.cn` 启动。
+The service will start at `https://api.medai.medai-zjgsu.cn`.
 
-### 前端部署
+### Frontend Deployment
 
-1. 安装依赖
+1. Install dependencies
 ```bash
 cd frontend
 npm install
 ```
 
-2. 启动开发服务器
+2. Start development server
 ```bash
 npm start
 ```
 
-前端将在 `https://api.medai.medai-zjgsu.cn:3000` 启动。
+The frontend will start at `https://api.medai.medai-zjgsu.cn:3000`.
 
-3. 构建生产版本
+3. Build for production
 ```bash
 npm run build
 ```
 
-## API文档
+## API Documentation
 
-启动后端服务后，访问 `https://api.medai.medai-zjgsu.cn/docs` 查看完整的API文档。
+After starting the backend service, visit `https://api.medai.medai-zjgsu.cn/docs` to view the complete API documentation.
 
-### 主要接口
+### Main Endpoints
 
-#### 健康档案管理
-- `POST /api/health-profile` - 创建健康档案
-- `GET /api/health-profile/{user_id}` - 获取健康档案
-- `PUT /api/health-profile/{user_id}` - 更新健康档案
-- `POST /api/health-profile/{user_id}/location` - 设置用户地区
+#### Health Profile Management
+- `POST /api/health-profile` - Create health profile
+- `GET /api/health-profile/{user_id}` - Get health profile
+- `PUT /api/health-profile/{user_id}` - Update health profile
+- `POST /api/health-profile/{user_id}/location` - Set user location
 
-#### 人物风格
-- `GET /api/persona-styles` - 获取所有人物风格
-- `POST /api/persona-styles/{user_id}/select` - 选择人物风格
-- `GET /api/persona-styles/{user_id}/current` - 获取当前风格
+#### Persona Styles
+- `GET /api/persona-styles` - Get all persona styles
+- `POST /api/persona-styles/{user_id}/select` - Select persona style
+- `GET /api/persona-styles/{user_id}/current` - Get current style
 
-#### 健康推送
-- `POST /api/push/rest/{user_id}` - 推送作息提醒
-- `POST /api/push/meal/{user_id}` - 推送饮食提醒
-- `POST /api/push/weather/{user_id}` - 推送天气信息
-- `POST /api/push/health-tip/{user_id}` - 推送养生妙招
-- `GET /api/push/history/{user_id}` - 获取推送历史
+#### Health Push
+- `POST /api/push/rest/{user_id}` - Push rest reminder
+- `POST /api/push/meal/{user_id}` - Push meal reminder
+- `POST /api/push/weather/{user_id}` - Push weather information
+- `POST /api/push/health-tip/{user_id}` - Push wellness tip
+- `GET /api/push/history/{user_id}` - Get push history
 
-## 目录结构
+## Project Structure
 
 ```
 health_agent/
-├── backend/              # 后端代码
-│   ├── api/             # API接口
-│   ├── config/          # 配置文件
-│   ├── core/            # 核心功能（数据库连接等）
-│   ├── models/          # 数据模型
-│   ├── services/        # 业务服务
-│   ├── scheduler/       # 定时任务
-│   ├── utils/           # 工具函数
-│   └── app.py           # 主应用入口
-├── frontend/            # 前端代码
-│   ├── public/          # 静态资源
-│   ├── src/             # 源代码
-│   │   ├── components/  # 组件
-│   │   ├── pages/       # 页面
-│   │   ├── services/    # API服务
-│   │   ├── store/       # 状态管理
-│   │   └── App.tsx      # 应用入口
+├── backend/              # Backend code
+│   ├── api/             # API endpoints
+│   ├── config/          # Configuration files
+│   ├── core/            # Core functionality (database connections, etc.)
+│   ├── models/          # Data models
+│   ├── services/        # Business services
+│   ├── scheduler/       # Scheduled tasks
+│   ├── utils/           # Utility functions
+│   └── app.py           # Main application entry
+├── frontend/            # Frontend code
+│   ├── public/          # Static assets
+│   ├── src/             # Source code
+│   │   ├── components/  # Components
+│   │   ├── pages/       # Pages
+│   │   ├── services/    # API services
+│   │   ├── store/       # State management
+│   │   └── App.tsx      # Application entry
 │   └── package.json
-├── requirements.txt     # Python依赖
-└── README.md           # 项目说明
+├── requirements.txt     # Python dependencies
+└── README.md           # Project documentation
 ```
 
-## 使用说明
+## User Guide
 
-1. **注册/登录**：首次使用需要注册账号
-2. **填写档案**：完成个人健康档案填写
-3. **选择风格**：选择喜欢的推送人物风格
-4. **设置地区**：设置所在地区以接收天气推送
-5. **接收推送**：系统将自动在设定时间推送健康资讯
+1. **Register/Login**: First-time users need to register an account
+2. **Fill Profile**: Complete personal health profile
+3. **Choose Style**: Select preferred persona style for pushes
+4. **Set Location**: Set your location to receive weather pushes
+5. **Receive Pushes**: The system will automatically push health information at scheduled times
 
-## 开发者
+## Quick Start Scripts
 
-如需二次开发，请参考代码注释和API文档。
+The project includes convenient startup scripts for different platforms:
 
-## 许可证
+### Windows
+- `start_backend.bat` - Start backend service
+- `start_frontend.bat` - Start React frontend
+- `start_taro_weapp.bat` - Start Taro WeChat Mini Program
+- `start_taro_h5.bat` - Start Taro H5 version
+
+### Linux/Mac
+- `start_backend.sh` - Start backend service
+- `start_frontend.sh` - Start React frontend
+- `start_taro_weapp.sh` - Start Taro WeChat Mini Program
+- `start_taro_h5.sh` - Start Taro H5 version
+
+## Recent Bug Fixes
+
+### Scheduled Task Issue
+Fixed an issue where scheduled tasks (including weather push) were not executing properly at 7:00 AM daily. The problem was caused by async function declarations without proper synchronous execution in APScheduler. 
+
+**Changes made**:
+- Removed `async` keyword from scheduler task methods in `backend/scheduler/tasks.py`
+- Added result logging for better monitoring of push operations
+- Enhanced error logging to track push failures
+
+The weather push and other scheduled reminders should now work correctly at their designated times.
+
+## Configuration
+
+### Timezone Settings
+The scheduler uses `Asia/Shanghai` timezone by default. You can modify this in `backend/config/config.yaml`:
+
+```yaml
+scheduler:
+  timezone: "Asia/Shanghai"
+  rest_times:
+    - "07:00"  # Wake-up reminder
+    - "13:00"  # Nap reminder
+    - "23:00"  # Bedtime reminder
+  meal_times:
+    - "07:30"  # Breakfast
+    - "12:00"  # Lunch
+    - "18:00"  # Dinner
+  weather_time: "07:00"
+  health_tip_time: "14:00"
+```
+
+## Development
+
+For secondary development, please refer to code comments and API documentation.
+
+### Development Environment Setup
+1. Python 3.8+ required for backend
+2. Node.js 16+ required for frontend
+3. MongoDB 4.4+ required for database
+
+### Running in Development Mode
+```bash
+# Backend with auto-reload
+cd backend
+python app.py
+
+# Frontend with hot-reload
+cd frontend
+npm start
+```
+
+## Troubleshooting
+
+### Issue: Scheduled tasks not executing
+- Check if the server time matches the configured timezone
+- Verify MongoDB connection is stable
+- Check logs in the backend console for task execution status
+
+### Issue: Weather push not working
+- Ensure user has set their location in the profile
+- Verify weather crawler is functioning correctly
+- Check if the location format matches the weather API requirements
+
+## License
 
 MIT License
 
+## Contributors
 
+Welcome contributions! Please feel free to submit pull requests or open issues.
 
+## Support
 
-
+For questions or support, please refer to the documentation or open an issue on the project repository.
 
